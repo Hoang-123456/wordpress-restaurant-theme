@@ -1,0 +1,103 @@
+{
+  "currency": "€",
+  "note": "Alle Preise inkl. MwSt. Bei Fragen zu Allergenen und Zusatzstoffen sprechen Sie uns gerne an.",
+  "tags": {
+    "vegetarian": "Vegetarisch",
+    "vegan": "Vegan",
+    "spicy": "Scharf",
+    "raw": "Roh"
+  },
+  "categories": [
+    {
+      "id": "starters",
+      "name": "Suppen & Vorspeisen",
+      "items": [
+        { "name": "Sommerrollen", "desc": "Gefüllt mit frischem Salat, Kräutern, Reisnudeln und wahlweise Hühnchen, Rind oder Garnelen", "price": "3.00", "tags": ["spicy"] },
+        { "name": "Frühlingsrollen", "desc": "Knusprig gebacken, vegetarisch (6 Stück), mit süß-saurer Sauce", "price": "4.50", "tags": ["vegetarian"] },
+        { "name": "Pho Ga", "desc": "Reisbandnudelsuppe mit Hühnerfleisch, Frühlingszwiebeln, Koriander (vietnamesische Art)", "price": "9.00", "tags": [] },
+        { "name": "Tom Kha Gai", "desc": "Suppe mit Hühnerfleisch, Kokosnussmilch, Koriander und Zitronengras", "price": "4.00", "tags": ["spicy"] },
+        { "name": "Wan Tan Suppe", "desc": "Mit Hühnerfleisch, gefüllten Krabben-Maultaschen und Gemüse", "price": "4.00", "tags": [] },
+        { "name": "Tempura", "desc": "6 japanische gebackene Garnelen", "price": "5.00", "tags": [] }
+      ]
+    },
+    {
+      "id": "chicken",
+      "name": "Hühnerfleisch",
+      "items": [
+        { "name": "Thai Krapao", "desc": "Hühnerbrustfilet mit Thai-Basilikum und Gemüse, mit Reis als Beilage", "price": "9.00", "tags": ["spicy"] },
+        { "name": "Kung Pao Art", "desc": "Hühnerbrustfilet mit Erdnuss-Soße und Gemüse", "price": "9.00", "tags": ["spicy"] },
+        { "name": "Chop Suey", "desc": "Hühnerbrustfilet mit Sojasoße, Gemüse und Ei", "price": "8.00", "tags": [] },
+        { "name": "Mango Curry", "desc": "Hühnerbrustfilet mit frischer Mango, Kokosnussmilch und Gemüse", "price": "9.00", "tags": [] },
+        { "name": "Gebratene Nudeln", "desc": "Mit Hühnerbrustfilet, Gemüse und Ei", "price": "8.00", "tags": [] },
+        { "name": "Saté", "desc": "Hühnerbrustfilet mit Erdnuss-Soße und Gemüse", "price": "9.00", "tags": ["spicy"] }
+      ]
+    },
+    {
+      "id": "beef",
+      "name": "Rindfleisch",
+      "items": [
+        { "name": "Bo Xao Sa Ot", "desc": "Rindfleisch mit Zitronengras, Zwiebeln, Paprika", "price": "10.00", "tags": ["spicy"] },
+        { "name": "Thai Gelbcurry", "desc": "Rindfleisch mit Kokosnussmilch und Gemüse", "price": "10.00", "tags": ["spicy"] },
+        { "name": "Kung Pao Art", "desc": "Rindfleisch mit pikanter Erdnuss-Soße und Gemüse", "price": "10.00", "tags": ["spicy"] },
+        { "name": "Chop Suey", "desc": "Rindfleisch mit Sojasoße, Gemüse und Ei", "price": "10.00", "tags": [] },
+        { "name": "Gebratener Reis", "desc": "Mit Rindfleisch, Gemüse und Ei", "price": "10.00", "tags": [] }
+      ]
+    },
+    {
+      "id": "duck",
+      "name": "Ente",
+      "items": [
+        { "name": "Canton-Art", "desc": "Knusprige Ente mit pikanter Soße und Gemüse", "price": "12.50", "tags": ["spicy"] },
+        { "name": "Mango Curry", "desc": "Knusprige Ente, Kokosnussmilch und Gemüse", "price": "12.50", "tags": [] },
+        { "name": "Thai Krapao", "desc": "Knusprige Ente mit Basilikum, grünen Bohnen und Gemüse", "price": "12.50", "tags": ["spicy"] },
+        { "name": "Süß-sauer", "desc": "Knusprige Ente mit Ananas", "price": "12.50", "tags": [] },
+        { "name": "Gebratene Nudeln", "desc": "Knusprige Ente mit Gemüse und Ei", "price": "12.50", "tags": [] }
+      ]
+    },
+    {
+      "id": "prawns",
+      "name": "Garnelen",
+      "items": [
+        { "name": "Thai Gelbcurry", "desc": "Big Shrimps, Kokosnussmilch und Gemüse", "price": "12.00", "tags": ["spicy"] },
+        { "name": "Tom Xao Hung Que", "desc": "Big Shrimps mit Thai-Basilikum und Gemüse", "price": "12.00", "tags": ["spicy"] },
+        { "name": "Mango Curry", "desc": "Big Shrimps mit Mango, Kokosnussmilch und Gemüse", "price": "12.00", "tags": [] },
+        { "name": "Kung Pao Art", "desc": "Big Shrimps mit pikanter Soße und Gemüse", "price": "12.00", "tags": ["spicy"] },
+        { "name": "Gebratener Reis", "desc": "Big Shrimps mit Gemüse und Ei", "price": "11.50", "tags": [] }
+      ]
+    },
+    {
+      "id": "vegetarian",
+      "name": "Vegetarisch",
+      "items": [
+        { "name": "Tofu Chop Suey", "desc": "Tofu mit Sojasoße und Gemüse", "price": "8.00", "tags": ["vegetarian"] },
+        { "name": "Tofu Thai Gelbcurry", "desc": "Tofu mit Kokosnussmilch und Gemüse", "price": "8.50", "tags": ["vegetarian", "spicy"] },
+        { "name": "Tofu Kung Pao Art", "desc": "Tofu mit pikanter Soße und Gemüse", "price": "8.50", "tags": ["vegetarian", "spicy"] },
+        { "name": "Tofu Mango Curry", "desc": "Tofu mit frischer Mango, Kokosnussmilch und Gemüse", "price": "8.50", "tags": ["vegetarian"] },
+        { "name": "Gebratene Nudeln", "desc": "Tofu mit Gemüse und Ei", "price": "8.00", "tags": ["vegetarian"] }
+      ]
+    },
+    {
+      "id": "sushi-menu",
+      "name": "Sushi-Menüs",
+      "items": [
+        { "name": "Menü S1", "desc": "4 verschiedene Rollchen: Lachs, Thunfisch, Gurken, Avocado. 3 Nigiri Lachs, Thunfisch, Eierstich", "price": "11.00", "tags": ["raw"] },
+        { "name": "Menü S5", "desc": "3 Nigiri Lachs, Thunfisch, Scampi. 3 Thunfisch, 3 Avocado, 3 Lachs, 3 Gurken", "price": "10.00", "tags": ["raw"] },
+        { "name": "Menü S14", "desc": "20 Maki: Lachs, Gurken, Thunfisch, Avocado, Spezial-California", "price": "25.00", "tags": ["raw"] },
+        { "name": "Menü S15 Familienteller", "desc": "66 Rollchen: Lachs, Gurken, Thunfisch, Avocado, Spezial-California, Philaden, Surimi", "price": "45.00", "tags": ["raw"] },
+        { "name": "Menü S9 Vegetarisch", "desc": "6 Rollchen Gurken, 6 Avocado, 6 Sepia-California-Rollchen", "price": "18.00", "tags": ["vegetarian", "raw"] }
+      ]
+    },
+    {
+      "id": "nigiri-maki",
+      "name": "Nigiri & Maki",
+      "items": [
+        { "name": "Sake (Lachs)", "desc": "Nigiri, je 1 Stück", "price": "2.50", "tags": ["raw"] },
+        { "name": "Maguro (Thunfisch)", "desc": "Nigiri, je 1 Stück", "price": "2.50", "tags": ["raw"] },
+        { "name": "Ebi (Gekochte Garnele)", "desc": "Nigiri, je 1 Stück", "price": "3.00", "tags": [] },
+        { "name": "Sake Maki", "desc": "Lachs · Nori Maki, 6 Stück", "price": "4.00", "tags": ["raw"] },
+        { "name": "Kappa Maki", "desc": "Gurke und Sesam · Nori Maki, 6 Stück", "price": "3.00", "tags": ["vegetarian", "vegan"] },
+        { "name": "California Roll", "desc": "Surimi, Avocado und Sesam oder Tobiko · Inside Out, 8 Stück", "price": "5.00", "tags": [] }
+      ]
+    }
+  ]
+}

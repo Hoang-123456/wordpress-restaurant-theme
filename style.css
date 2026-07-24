@@ -1,0 +1,466 @@
+/*
+Theme Name:  Restaurant Theme
+Theme URI:   https://example.com/
+Description: Flexibles FSE-Theme für Restaurants – vom Schnellimbiss bis zur gehobenen Küche. DSGVO-konform, barrierefrei, mobile-first, ohne Bloat.
+Version:     1.0.0
+Author:      —
+Text Domain: restaurant-theme
+Requires at least: 6.6
+Tested up to: 7.0
+Requires PHP: 8.2
+License:     GPL-2.0-or-later
+*/
+
+/*
+  Schlankes CSS – der Großteil läuft über theme.json.
+  Hier lebt nur, was theme.json nicht ausdrücken kann.
+  Alle Werte referenzieren Preset-Variablen (Single Source of Truth).
+*/
+
+/* ── Root-Variablen ────────────────────────────────────────────
+   Zentralisiert Werte, die an mehreren Stellen im CSS gebraucht
+   werden, aber keine theme.json-Presets sind (Layout-Maße,
+   semantische Tag-Farben ohne Markenbezug). */
+
+:root {
+  --header-h: 78px;
+  --tag-veg-fg:    #2f6d3f;
+  --tag-veg-bg:    #e7f2e9;
+  --tag-spicy-fg:  #a34d0f;
+  --tag-spicy-bg:  #fbe9d3;
+  --tag-raw-fg:    #2a5b78;
+  --tag-raw-bg:    #e5eef4;
+}
+
+@media (max-width: 782px) {
+  :root { --header-h: 64px; }
+}
+
+/* ── Global ────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+:focus-visible {
+  outline: 3px solid var(--wp--preset--color--primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Auf dunklem Grund (Header/Hero/Footer) reicht der Kontrast von
+   Primary-Rot zu Rot nicht aus – dort Weiß als Fokusfarbe */
+.site-header :focus-visible,
+.hero :focus-visible,
+.site-footer :focus-visible {
+  outline-color: var(--wp--preset--color--white);
+}
+
+/* Sticky-Header darf Sektions-Anker nicht verdecken */
+[id] {
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Skip-Link ─────────────────────────────────────────────── */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--white);
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: 0 0 6px 6px;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--wp--preset--color--primary) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid color-mix(in srgb, var(--wp--preset--color--white) 12%, transparent);
+}
+
+.site-header .wp-block-site-title a {
+  color: var(--wp--preset--color--white) !important;
+  text-decoration: none;
+  font-family: var(--wp--preset--font-family--display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.site-header .wp-block-navigation a {
+  color: var(--wp--preset--color--white) !important;
+  text-decoration: none;
+  font-size: var(--wp--preset--font-size--sm);
+  font-family: var(--wp--preset--font-family--body);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.site-header .wp-block-navigation a:hover,
+.site-header .wp-block-navigation a:focus-visible {
+  color: var(--wp--preset--color--highlight) !important;
+}
+
+/* Mobile-Overlay-Menü lesbar auf dunklem Grund */
+.site-header .wp-block-navigation__responsive-container.is-menu-open {
+  background: var(--wp--preset--color--primary);
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+
+.site-footer {
+  background: var(--wp--preset--color--text);
+  border-top: 3px solid var(--wp--preset--color--accent);
+}
+
+.site-footer a {
+  color: color-mix(in srgb, var(--wp--preset--color--white) 62%, transparent) !important;
+  font-size: var(--wp--preset--font-size--sm);
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--wp--preset--color--highlight) !important;
+}
+
+/* ── Sektionen ─────────────────────────────────────────────── */
+
+.section-cream   { background-color: var(--wp--preset--color--cream); }
+.section-surface { background-color: var(--wp--preset--color--surface); }
+
+.eyebrow {
+  font-family: var(--wp--preset--font-family--body);
+  font-size: var(--wp--preset--font-size--sm);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wp--preset--color--primary);
+}
+
+/* ── Hero ──────────────────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(120% 90% at 85% 10%,
+      color-mix(in srgb, var(--wp--preset--color--accent) 22%, transparent) 0%,
+      transparent 55%),
+    var(--wp--preset--color--primary);
+}
+
+.hero > .wp-block-group__inner-container,
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── About ─────────────────────────────────────────────────── */
+
+.about-figure img {
+  border-radius: 8px;
+  box-shadow: var(--wp--preset--shadow--medium);
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Info-Panel (Öffnungszeiten, Adresse, Telefon) ────────────
+   Reine Textinformationen, nichts klickbar. Wird sowohl im
+   eigenständigen Kontakt-Pattern als auch im kombinierten
+   Über-uns/Kontakt-Pattern verwendet. */
+
+.info-panel {
+  padding: 1.75rem 2rem;
+  background: var(--wp--preset--color--white);
+  border: 1px solid var(--wp--preset--color--border);
+  border-radius: 8px;
+}
+
+.info-panel h2 {
+  margin: 0 0 1rem;
+  font-size: var(--wp--preset--font-size--md);
+}
+
+.info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--wp--preset--color--border);
+  font-size: var(--wp--preset--font-size--sm);
+}
+
+.info-row:last-child { border-bottom: 0; }
+
+.info-row__label {
+  flex: 0 0 auto;
+  min-width: 8rem;
+  font-weight: 600;
+  color: var(--wp--preset--color--text);
+}
+
+.info-row__value {
+  flex: 1 1 auto;
+  color: var(--wp--preset--color--muted);
+}
+
+.info-row__value--phone {
+  font-weight: 600;
+  color: var(--wp--preset--color--primary);
+}
+
+/* ── Menü ──────────────────────────────────────────────────── */
+
+.menu-app {
+  --menu-gap: 1.5rem;
+}
+
+/* Steuerleiste: Filter + Suche */
+.menu-controls {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 20;
+  padding: 1rem 0;
+  margin-bottom: var(--wp--preset--spacing--m);
+  background: color-mix(in srgb, var(--wp--preset--color--cream) 94%, transparent);
+  backdrop-filter: blur(6px);
+}
+
+.menu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.menu-filter {
+  padding: 0.5rem 1.1rem;
+  font-family: var(--wp--preset--font-family--body);
+  font-size: var(--wp--preset--font-size--sm);
+  font-weight: 500;
+  color: var(--wp--preset--color--primary);
+  background: var(--wp--preset--color--white);
+  border: 1px solid var(--wp--preset--color--border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.menu-filter:hover {
+  border-color: var(--wp--preset--color--accent);
+}
+
+.menu-filter.is-active {
+  background: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--white);
+  border-color: var(--wp--preset--color--primary);
+}
+
+.menu-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.menu-search {
+  position: relative;
+  flex: 1 1 240px;
+  min-width: 0;
+}
+
+.menu-search-input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.5rem;
+  font-family: var(--wp--preset--font-family--body);
+  font-size: var(--wp--preset--font-size--base);
+  color: var(--wp--preset--color--text);
+  background: var(--wp--preset--color--white);
+  border: 1px solid var(--wp--preset--color--border);
+  border-radius: 999px;
+}
+
+.menu-search-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--wp--preset--color--muted);
+  pointer-events: none;
+}
+
+.menu-veg {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--wp--preset--font-size--sm);
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+}
+
+.menu-veg input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--wp--preset--color--accent);
+  cursor: pointer;
+}
+
+/* Nur für Screenreader (WP-Standardklasse; .menu-status referenziert
+   dieselbe Klasse im Markup statt eigener Duplikat-Regel) */
+.screen-reader-text {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Gruppen + Items */
+.menu-group + .menu-group {
+  margin-top: var(--wp--preset--spacing--l);
+}
+
+.menu-group-title {
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid var(--wp--preset--color--accent);
+}
+
+.menu-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--menu-gap) 3rem;
+}
+
+.menu-item {
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--wp--preset--color--border);
+}
+
+.menu-item-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.menu-item-name {
+  margin: 0;
+  font-family: var(--wp--preset--font-family--display);
+  font-size: var(--wp--preset--font-size--md);
+  font-weight: 600;
+}
+
+.menu-item-dots {
+  flex: 1 1 auto;
+  border-bottom: 1px dotted var(--wp--preset--color--border);
+  transform: translateY(-3px);
+}
+
+.menu-item-price {
+  flex: 0 0 auto;
+  font-weight: 600;
+  color: var(--wp--preset--color--primary);
+  white-space: nowrap;
+}
+
+.menu-item-desc {
+  margin: 0.4rem 0 0;
+  font-size: var(--wp--preset--font-size--sm);
+  color: var(--wp--preset--color--muted);
+  line-height: 1.5;
+}
+
+.menu-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.menu-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--wp--preset--color--surface);
+  color: var(--wp--preset--color--muted);
+}
+
+.menu-tag--vegetarian,
+.menu-tag--vegan { color: var(--tag-veg-fg); background: var(--tag-veg-bg); }
+.menu-tag--spicy { color: var(--tag-spicy-fg); background: var(--tag-spicy-bg); }
+.menu-tag--raw   { color: var(--tag-raw-fg); background: var(--tag-raw-bg); }
+
+.menu-empty,
+.menu-error {
+  padding: 2rem 0;
+  color: var(--wp--preset--color--muted);
+}
+
+/* ── Legal Pages ───────────────────────────────────────────── */
+
+.legal-content h2 { margin-top: var(--wp--preset--spacing--m); }
+.legal-content h3 { margin-top: var(--wp--preset--spacing--s); }
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .menu-items {
+    grid-template-columns: 1fr;
+    gap: var(--menu-gap);
+  }
+}
+
+@media (max-width: 782px) {
+  .menu-tools {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .menu-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.25rem;
+  }
+
+  .menu-filters::-webkit-scrollbar { display: none; }
+
+  .menu-filter { white-space: nowrap; }
+}
