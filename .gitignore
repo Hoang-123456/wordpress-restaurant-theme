@@ -1,0 +1,10 @@
+# Betriebssystem
+.DS_Store
+Thumbs.db
+
+# Falls später Composer/npm dazukommt
+/vendor/
+/node_modules/
+
+# Editor-/Tool-Cache
+.phpunit.result.cache
