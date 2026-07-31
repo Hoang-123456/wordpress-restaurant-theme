@@ -51,6 +51,13 @@ add_action( 'init', function () {
  * Spart Requests auf allen anderen Seiten (kein Bloat).
  */
 add_action( 'wp_enqueue_scripts', function () {
+	$theme   = wp_get_theme();
+	$version = $theme->get( 'Version' );
+
+	// Theme-eigenes style.css – add_editor_style() lädt es nur im Block-Editor,
+	// fürs Frontend braucht es dieses explizite Enqueue.
+	wp_enqueue_style( 'restaurant-theme-style', get_stylesheet_uri(), array(), $version );
+
 	if ( ! is_singular() ) {
 		return;
 	}
@@ -60,9 +67,7 @@ add_action( 'wp_enqueue_scripts', function () {
 		return;
 	}
 
-	$theme   = wp_get_theme();
-	$version = $theme->get( 'Version' );
-	$uri     = get_template_directory_uri();
+	$uri = get_template_directory_uri();
 
 	wp_enqueue_script(
 		'restaurant-menu',
