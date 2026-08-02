@@ -8,3 +8,6 @@ Thumbs.db
 
 # Editor/tool cache
 .phpunit.result.cache
+
+# Build output (bin/build-zip.sh)
+/dist/

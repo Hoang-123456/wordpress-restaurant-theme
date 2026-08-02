@@ -1,0 +1,10 @@
+# Dev-only files excluded from `git archive` (used by bin/build-zip.sh
+# to build the production ZIP). Runtime theme files must stay out of this list.
+
+/.devcontainer   export-ignore
+/.vscode         export-ignore
+/.fallow         export-ignore
+/bin             export-ignore
+/.gitattributes  export-ignore
+/.gitignore      export-ignore
+/README.md       export-ignore
