@@ -4,15 +4,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Title:      Über uns & Kontakt (kombiniert)
+ * Title:      About us & contact (combined)
  * Slug:       restaurant/about-contact
  * Categories: restaurant
  *
- * Alternative zu den getrennten Patterns "about" und "contact":
- * eine Sektion, zweispaltig – links die Geschichte des Hauses,
- * rechts Öffnungszeiten/Adresse/Telefon als reine Textinfo
- * (nichts klickbar). Nur eine der beiden Varianten pro Projekt
- * verwenden, nicht beide gleichzeitig einfügen.
+ * Alternative to the separate "about" and "contact" patterns:
+ * a two-column section – left the story of the house,
+ * right opening hours/address/phone as plain text information
+ * (nothing clickable). Use only one of the two variants per project,
+ * not both at the same time.
  */
 ?>
 

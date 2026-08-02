@@ -1,10 +1,10 @@
-# Betriebssystem
+# Operating system
 .DS_Store
 Thumbs.db
 
-# Falls später Composer/npm dazukommt
+# If Composer/npm are added later
 /vendor/
 /node_modules/
 
-# Editor-/Tool-Cache
+# Editor/tool cache
 .phpunit.result.cache

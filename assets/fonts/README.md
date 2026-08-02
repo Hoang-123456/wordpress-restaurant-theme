@@ -1,45 +1,45 @@
-# Schriftarten (lokal, DSGVO-konform)
+# Fonts (local, GDPR-compliant)
 
-Die fünf benötigten `.woff2`-Dateien liegen bereits in diesem Ordner –
-keine weitere Aktion nötig. Das Theme lädt keine Fonts von externen
-Servern (kein Google-Fonts-CDN, keine Laufzeit-Verbindung zu Google).
+The five required `.woff2` files are already in this folder –
+no further action is needed. The theme loads no fonts from external
+servers (no Google Fonts CDN, no runtime connection to Google).
 
-## Enthaltene Dateien
+## Included files
 
 ```
-figtree-400.woff2          Figtree Regular      – Fließtext
-figtree-500.woff2          Figtree Medium       – Navigation, Filter, Labels
-figtree-600.woff2          Figtree SemiBold     – Buttons, Preise, Telefonnummer
-fraunces-600.woff2         Fraunces 72pt Soft SemiBold        – Überschriften h1–h3
-fraunces-600-italic.woff2  Fraunces 72pt Soft SemiBold Italic – Zitat-Akzent
+figtree-400.woff2          Figtree Regular      – body text
+figtree-500.woff2          Figtree Medium       – navigation, filters, labels
+figtree-600.woff2          Figtree SemiBold     – buttons, prices, phone numbers
+fraunces-600.woff2         Fraunces 72pt Soft SemiBold        – headings h1–h3
+fraunces-600-italic.woff2  Fraunces 72pt Soft SemiBold Italic – quote accent
 ```
 
-Für die Überschriften wurde bewusst die **Soft-Variante** von Fraunces
-gewählt (nicht der Standard-Schnitt) – rundere, wärmere Anmutung, passend
-zum familiären Charakter des Themes statt zum strengeren Editorial-Look
-des Standard-Schnitts.
+For the headings, the **soft version** of Fraunces was intentionally chosen
+(instead of the default cut) – a rounder, warmer look that fits the
+family-oriented character of the theme better than the stricter editorial
+style of the default cut.
 
-## Zeichensatz
+## Character set
 
-Aktuell ausschließlich **deutsches Zeichenrepertoire** (ca. 80 KB gesamt,
-alle fünf Dateien zusammen):
+Currently only a **German character repertoire** is included (about 80 KB in total,
+for all five files combined):
 
-- Basic Latin + Latin-1 Supplement (deckt ä ö ü ß und alle deutschen
-  Sonderzeichen ab)
-- Allgemeine Interpunktion (– „ " … etc.), Euro-Zeichen
+- Basic Latin + Latin-1 Supplement (covers accented Latin characters and other German
+  special characters)
+- General punctuation (– „ " … etc.), euro sign
 
-Bewusst **kein** erweitertes Zeichenrepertoire für andere Sprachen
-(z. B. Vietnamesisch) mehr enthalten – auf Wunsch entfernt, da die
-Inhalte vorerst rein deutsch gepflegt werden.
+No extended character repertoire for other languages is included by design
+(e.g. Vietnamese) – if needed, it can be removed because the content is
+currently maintained in English only.
 
-## Später wieder mehrsprachig?
+## Later again for multilingual use?
 
-Falls doch fremdsprachiger Text mit Sonderzeichen dazukommt (z. B.
-vietnamesische Gerichtnamen mit Diakritika), müssen die Fonts neu
-subgesettet werden – sonst fällt der Browser für die fehlenden Zeichen
-auf eine System-Schrift zurück, was innerhalb eines Wortes sichtbar
-inkonsistent aussieht. Vorgehen: Google-Fonts-Paket (Figtree, Fraunces)
-erneut besorgen und mit einem breiteren Unicode-Bereich subsetten:
+If foreign-language text with special characters is added later (e.g.
+Vietnamese dish names with diacritics), the fonts need to be subset again –
+otherwise the browser falls back to a system font for the missing characters,
+which can look visibly inconsistent within a word. Approach: fetch the Google
+Fonts package again (Figtree, Fraunces) and subset it with a broader Unicode
+range:
 
 ```bash
 pip install fonttools brotli --break-system-packages
@@ -50,12 +50,11 @@ pyftsubset Figtree-Regular.ttf \
   --output-file=figtree-400.woff2
 ```
 
-Der zusätzliche Bereich `U+1E00-1EFF` (Latin Extended Additional) deckt
-vietnamesische Diakritika ab, `U+0300-036F` kombinierende Akzentzeichen.
+The additional range `U+1E00-1EFF` (Latin Extended Additional) covers
+Vietnamese diacritics, and `U+0300-036F` covers combining accent marks.
 
-## Andere Schriftfamilie verwenden
+## Use another font family
 
-Dateien ersetzen und in `theme.json` unter
-`settings.typography.fontFamilies` `name`, `fontFamily` und
-`src`-Pfade anpassen. Der Rest des Themes referenziert nur die Slugs
-`body` und `display`, es muss sonst nichts angefasst werden.
+Replace the files and adjust `name`, `fontFamily`, and `src` paths in
+`theme.json` under `settings.typography.fontFamilies`. The rest of the theme
+only references the slugs `body` and `display`, so nothing else needs to be changed.

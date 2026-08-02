@@ -1,9 +1,8 @@
-# Übersetzungen
+# Translations
 
-Für zusätzliche Sprachen `.po`/`.mo`-Dateien hier ablegen, z. B.
-`restaurant-theme-en_US.po`. Erzeugen z. B. mit Poedit oder
+Place additional `.po`/`.mo` files here, for example
+`restaurant-theme-en_US.po`. They can be created with Poedit or
 `wp i18n make-pot . languages/restaurant-theme.pot` (WP-CLI).
 
-Aktuell nicht benötigt, da die Inhalte ausschließlich auf Deutsch
-gepflegt werden. `load_theme_textdomain()` ist in `functions.php`
-bereits vorbereitet.
+This is not required at the moment, since the content is maintained in English.
+`load_theme_textdomain()` is already prepared in `functions.php`.

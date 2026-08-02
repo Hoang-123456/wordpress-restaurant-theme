@@ -1,8 +1,8 @@
 <?php
 /**
  * Restaurant Theme – functions.php
- * FSE-Theme: theme.json übernimmt den Großteil des Stylings.
- * Hier steht nur, was theme.json nicht abdecken kann.
+ * FSE theme: theme.json handles most of the styling.
+ * This file only contains what theme.json cannot cover.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,34 +10,34 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Grundausstattung: Übersetzungen, Theme-Supports, Editor-Vorschau.
- * Alles Ein-Zeiler ohne Laufzeit-/Performance-Kosten – Standard-Baseline
- * für jedes WordPress-Theme, unabhängig vom "kein Bloat"-Anspruch.
+ * Basic setup: translations, theme supports, editor preview.
+ * Everything is a one-liner with no runtime/performance cost – standard baseline
+ * for any WordPress theme, regardless of the "no bloat" goal.
  */
 add_action( 'after_setup_theme', function () {
-	// Übersetzbarkeit vorbereiten (Sprachdateien in /languages).
+	// Prepare translatability (language files in /languages).
 	load_theme_textdomain( 'restaurant-theme', get_template_directory() . '/languages' );
 
-	// Logo-Upload im Site-Editor zuverlässig aktivieren (wp:site-logo Block).
+	// Enable logo upload in the site editor reliably (wp:site-logo block).
 	add_theme_support( 'custom-logo' );
 
-	// Für ein mögliches späteres Blog/News-Pattern (Blog-Beiträge mit Bild).
+	// For a possible future blog/news pattern (blog posts with image).
 	add_theme_support( 'post-thumbnails' );
 
-	// Saubere HTML5-Auszeichnung für Formulare/Kommentare/Galerien.
+	// Clean HTML5 markup for forms/comments/galleries.
 	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
 
-	// Eingebettete Inhalte (z. B. YouTube) responsiv statt fixer Breite.
+	// Responsive embedded content (e.g. YouTube) instead of fixed width.
 	add_theme_support( 'responsive-embeds' );
 
-	// Editor-Vorschau nutzt dasselbe Stylesheet wie das Frontend – Redakteure
-	// sehen im Block-Editor dieselben Farben/Schriften wie live auf der Seite.
+	// The editor preview uses the same stylesheet as the frontend – editors
+	// see the same colors/fonts in the block editor as on the live site.
 	add_theme_support( 'editor-styles' );
 	add_editor_style( 'style.css' );
 } );
 
 /**
- * Pattern-Kategorie registrieren.
+ * Register pattern category.
  */
 add_action( 'init', function () {
 	register_block_pattern_category(
@@ -47,15 +47,15 @@ add_action( 'init', function () {
 } );
 
 /**
- * Menü-Assets (CSS/JS) nur laden, wenn das Menü-Pattern auf der Seite steht.
- * Spart Requests auf allen anderen Seiten (kein Bloat).
+ * Load menu assets (CSS/JS) only when the menu pattern is present on the page.
+ * This saves requests on all other pages (no bloat).
  */
 add_action( 'wp_enqueue_scripts', function () {
 	$theme   = wp_get_theme();
 	$version = $theme->get( 'Version' );
 
-	// Theme-eigenes style.css – add_editor_style() lädt es nur im Block-Editor,
-	// fürs Frontend braucht es dieses explizite Enqueue.
+	// Theme stylesheet – add_editor_style() only loads it in the block editor,
+	// for the frontend this explicit enqueue is required.
 	wp_enqueue_style( 'restaurant-theme-style', get_stylesheet_uri(), array(), $version );
 
 	if ( ! is_singular() ) {
@@ -79,12 +79,11 @@ add_action( 'wp_enqueue_scripts', function () {
 } );
 
 /**
- * Kritische Above-the-Fold-Schriften vorladen (Body-Text + Überschrift).
- * Beide werden auf jeder Seite sofort gebraucht (Header, H1); ohne Preload
- * entdeckt der Browser sie erst nach dem CSS-Parsing, was die Textdarstellung
- * (LCP) unnötig verzögert. Die übrigen drei Schnitte (500, 600, Italic)
- * werden bewusst nicht vorgeladen, um keine unnötige Bandbreite in der
- * kritischen Ladephase zu binden.
+ * Preload critical above-the-fold fonts (body text + heading).
+ * Both are needed on every page immediately (header, H1); without preloading
+ * the browser discovers them only after CSS parsing, which unnecessarily delays
+ * text rendering (LCP). The remaining three weights (500, 600, Italic)
+ * are intentionally not preloaded to avoid wasting bandwidth in the critical load phase.
  */
 add_action( 'wp_head', function () {
 	$uri = get_template_directory_uri();

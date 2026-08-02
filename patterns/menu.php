@@ -4,13 +4,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Title:      Menü
+ * Title:      Menu
  * Slug:       restaurant/menu
  * Categories: restaurant
  *
- * Die Speisekarte wird zentral in assets/data/menu.json gepflegt.
- * Dieses Pattern liefert nur das barrierefreie Gerüst; assets/js/menu.js
- * lädt die Daten und rendert Karten, Filter und Suche clientseitig.
+ * The menu is managed centrally in assets/data/menu.json.
+ * This pattern only provides the accessible shell; assets/js/menu.js
+ * loads the data and renders cards, filters, and search client-side.
  */
 $menu_src = esc_url( get_template_directory_uri() . '/assets/data/menu.json' );
 ?>
@@ -41,8 +41,8 @@ $menu_src = esc_url( get_template_directory_uri() . '/assets/data/menu.json' );
 		<div id="menu-app" class="menu-app" data-src="<?php echo $menu_src; ?>">
 
 			<div class="menu-controls">
-				<div class="menu-filters" role="group" aria-label="Nach Kategorie filtern">
-					<!-- Kategorie-Buttons werden per JS eingefügt -->
+				<div class="menu-filters" role="group" aria-label="Filter by category">
+					<!-- Category buttons are inserted by JS -->
 				</div>
 
 				<div class="menu-tools">

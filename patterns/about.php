@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Title:      Über uns
+ * Title:      About us
  * Slug:       restaurant/about
  * Categories: restaurant
  */
@@ -41,7 +41,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<!-- wp:column {"verticalAlignment":"center","width":"45%","className":"about-figure"} -->
 		<div class="wp-block-column is-vertically-aligned-center about-figure" style="flex-basis:45%;">
 			<!-- wp:image {"sizeSlug":"large","style":{"border":{"radius":"8px"}}} -->
-			<figure class="wp-block-image size-large has-custom-border"><img alt="Frisch zubereitetes Gericht" style="border-radius:8px;" /></figure>
+			<figure class="wp-block-image size-large has-custom-border"><img alt="Freshly prepared dish" style="border-radius:8px;" /></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

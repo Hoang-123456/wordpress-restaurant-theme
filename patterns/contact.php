@@ -4,13 +4,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Title:      Kontakt & Anfahrt
+ * Title:      Contact & directions
  * Slug:       restaurant/contact
  * Categories: restaurant
  *
- * Eigenständiges Kontakt-Pattern: reine Textinformationen
- * (Telefon, Adresse, Öffnungszeiten), nichts klickbar.
- * Für ein kombiniertes Layout mit "Über uns" siehe
+ * Standalone contact pattern: plain text information
+ * (phone, address, opening hours), nothing clickable.
+ * For a combined layout with "About us", see
  * patterns/about-contact.php.
  */
 ?>

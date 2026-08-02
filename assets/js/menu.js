@@ -1,7 +1,7 @@
 /**
- * Restaurant Theme – Menü
- * Lädt menu.json, rendert Karten und filtert clientseitig.
- * Kein Framework, keine externen Abhängigkeiten.
+ * Restaurant Theme – menu
+ * Loads menu.json, renders cards, and filters client-side.
+ * No framework, no external dependencies.
  */
 (function () {
   'use strict';
@@ -12,7 +12,7 @@
   var dataUrl = root.getAttribute('data-src');
   var state = { data: null, category: 'all', query: '', vegOnly: false };
 
-  // Referenzen auf die statischen Gerüst-Elemente aus dem Pattern
+  // References to the static shell elements from the pattern
   var els = {
     filters: root.querySelector('.menu-filters'),
     search:  root.querySelector('.menu-search-input'),
@@ -135,7 +135,7 @@
       : total + ' Gerichte angezeigt';
   }
 
-  // Suche (entprellt) + Vegetarisch-Umschalter
+  // Search (debounced) + vegetarian toggle
   var debounce;
   els.search.addEventListener('input', function () {
     clearTimeout(debounce);

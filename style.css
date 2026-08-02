@@ -1,7 +1,7 @@
 /*
 Theme Name:  Restaurant Theme
 Theme URI:   https://example.com/
-Description: Flexibles FSE-Theme für Restaurants – vom Schnellimbiss bis zur gehobenen Küche. DSGVO-konform, barrierefrei, mobile-first, ohne Bloat.
+Description: Flexible FSE theme for restaurants – from quick-service spots to upscale dining. GDPR-compliant, accessible, mobile-first, no bloat.
 Version:     1.0.0
 Author:      —
 Text Domain: restaurant-theme
@@ -12,15 +12,15 @@ License:     GPL-2.0-or-later
 */
 
 /*
-  Schlankes CSS – der Großteil läuft über theme.json.
-  Hier lebt nur, was theme.json nicht ausdrücken kann.
-  Alle Werte referenzieren Preset-Variablen (Single Source of Truth).
+  Lightweight CSS – most styling is handled via theme.json.
+  Only what theme.json cannot express lives here.
+  All values reference preset variables (single source of truth).
 */
 
-/* ── Root-Variablen ────────────────────────────────────────────
-   Zentralisiert Werte, die an mehreren Stellen im CSS gebraucht
-   werden, aber keine theme.json-Presets sind (Layout-Maße,
-   semantische Tag-Farben ohne Markenbezug). */
+/* ── Root variables ───────────────────────────────────────────
+   Centralized values used in multiple places in the CSS
+   but that are not theme.json presets (layout dimensions,
+   semantic tag colors without brand reference). */
 
 :root {
   --header-h: 78px;
@@ -48,15 +48,14 @@ html {
   border-radius: 2px;
 }
 
-/* Auf dunklem Grund (Header/Hero/Footer) reicht der Kontrast von
-   Primary-Rot zu Rot nicht aus – dort Weiß als Fokusfarbe */
+/* On dark backgrounds (header/hero/footer), the contrast from primary red to red is insufficient – white is used as the focus color there */
 .site-header :focus-visible,
 .hero :focus-visible,
 .site-footer :focus-visible {
   outline-color: var(--wp--preset--color--white);
 }
 
-/* Sticky-Header darf Sektions-Anker nicht verdecken */
+/* Sticky header must not cover section anchors */
 [id] {
   scroll-margin-top: calc(var(--header-h) + 12px);
 }
@@ -122,7 +121,7 @@ html {
   color: var(--wp--preset--color--highlight) !important;
 }
 
-/* Mobile-Overlay-Menü lesbar auf dunklem Grund */
+/* Mobile overlay menu readable on dark backgrounds */
 .site-header .wp-block-navigation__responsive-container.is-menu-open {
   background: var(--wp--preset--color--primary);
 }
@@ -193,10 +192,9 @@ html {
   height: 100%;
 }
 
-/* ── Info-Panel (Öffnungszeiten, Adresse, Telefon) ────────────
-   Reine Textinformationen, nichts klickbar. Wird sowohl im
-   eigenständigen Kontakt-Pattern als auch im kombinierten
-   Über-uns/Kontakt-Pattern verwendet. */
+/* ── Info panel (opening hours, address, phone) ─────────────
+   Plain text information only, nothing clickable. Used in both the
+   standalone contact pattern and the combined about/contact pattern. */
 
 .info-panel {
   padding: 1.75rem 2rem;
@@ -238,13 +236,13 @@ html {
   color: var(--wp--preset--color--primary);
 }
 
-/* ── Menü ──────────────────────────────────────────────────── */
+/* ── Menu ──────────────────────────────────────────────────── */
 
 .menu-app {
   --menu-gap: 1.5rem;
 }
 
-/* Steuerleiste: Filter + Suche */
+/* Control bar: filters + search */
 .menu-controls {
   position: sticky;
   top: var(--header-h);
@@ -335,8 +333,7 @@ html {
   cursor: pointer;
 }
 
-/* Nur für Screenreader (WP-Standardklasse; .menu-status referenziert
-   dieselbe Klasse im Markup statt eigener Duplikat-Regel) */
+/* For screen readers only (WP standard class; .menu-status references the same class in the markup instead of a separate duplicate rule) */
 .screen-reader-text {
   position: absolute !important;
   width: 1px; height: 1px;

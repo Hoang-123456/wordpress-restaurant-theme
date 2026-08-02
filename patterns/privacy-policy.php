@@ -4,7 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Title:      Datenschutzerklärung
+ * Title:      Privacy policy
  * Slug:       restaurant/privacy-policy
  * Categories: restaurant
  * Inserter:   false
@@ -12,45 +12,45 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">1. Verantwortlicher</h2>
+<h2 class="wp-block-heading">1. Responsible party</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Verantwortlich für die Datenverarbeitung auf dieser Website ist [Firmenname / Inhaber], Freisinger Str. 12, 85435 Erding. Kontakt siehe <a href="/impressum">Impressum</a>.</p>
+<p>The data controller for this website is [Company name / owner], Freisinger Str. 12, 85435 Erding. Contact details can be found in the <a href="/impressum">Imprint</a>.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">2. Hosting und Server-Logfiles</h2>
+<h2 class="wp-block-heading">2. Hosting and server log files</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Beim Aufruf dieser Website werden durch den Hosting-Provider automatisch Informationen (Server-Logfiles) erfasst, die Ihr Browser übermittelt: IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, Browsertyp und Betriebssystem. Diese Daten dienen der technischen Bereitstellung und Sicherheit der Website (Art. 6 Abs. 1 lit. f DSGVO) und werden nach kurzer Zeit gelöscht.</p>
+<p>When you visit this website, the hosting provider automatically collects information (server log files) that your browser transmits: IP address, date and time of access, requested page, browser type, and operating system. This data is used for technical delivery and website security (Art. 6(1)(f) GDPR) and is deleted after a short period.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">3. Schriftarten (Fonts)</h2>
+<h2 class="wp-block-heading">3. Fonts</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Diese Website verwendet ausschließlich lokal gespeicherte Schriftarten. Es werden keine Schriftarten von externen Servern (z. B. Google Fonts) geladen, sodass hierbei keine Daten an Dritte übertragen werden.</p>
+<p>This website uses only locally stored fonts. No fonts are loaded from external servers (e.g. Google Fonts), so no data is transmitted to third parties.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">4. Kontaktaufnahme</h2>
+<h2 class="wp-block-heading">4. Contact</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Wenn Sie uns per Telefon oder E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung Ihrer Anfrage verarbeitet (Art. 6 Abs. 1 lit. b bzw. f DSGVO). Diese Daten geben wir nicht ohne Ihre Einwilligung weiter und löschen sie, sobald sie nicht mehr benötigt werden.</p>
+<p>If you contact us by phone or email, your details will be processed to handle your request (Art. 6(1)(b) or (f) GDPR). We will not pass these data on without your consent and will delete them once they are no longer needed.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":2} -->
-<h2 class="wp-block-heading">5. Ihre Rechte</h2>
+<h2 class="wp-block-heading">5. Your rights</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch. Zudem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren.</p>
+<p>You have the right to access, rectify, delete, restrict processing, data portability, and objection. You may also lodge a complaint with a data protection supervisory authority.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"fontSize":"sm","style":{"color":{"text":"var:preset|color|muted"}}} -->
-<p class="has-sm-font-size has-text-color" style="color:var(--wp--preset--color--muted);"><em>Hinweis: Diese Vorlage deckt eine schlanke Website ohne Tracking, externe Karten oder Online-Formulare ab. Sobald Sie Dienste wie ein Kontaktformular-Plugin, eine Karteneinbindung oder Reservierungssysteme einsetzen, muss die Erklärung entsprechend ergänzt werden.</em></p>
+<p class="has-sm-font-size has-text-color" style="color:var(--wp--preset--color--muted);"><em>Note: This template covers a lean website without tracking, external maps, or online forms. If you use services such as a contact form plugin, map integration, or reservation system, the policy should be updated accordingly.</em></p>
 <!-- /wp:paragraph -->

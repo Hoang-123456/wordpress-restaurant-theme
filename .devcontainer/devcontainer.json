@@ -8,11 +8,10 @@
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
 
-  // Named Volume, das NUR den Claude-Code-Auth-/Settings-Ordner übersteht,
-  // während der Rest des Home-Verzeichnisses bei jedem Rebuild verworfen
-  // wird. Dadurch bleibt man eingeloggt, ohne den ganzen Container-State
-  // persistent zu machen. ${devcontainerId} sorgt dafür, dass jedes Projekt
-  // sein eigenes Volume bekommt, statt sich eins mit allen zu teilen.
+  // Named volume that only survives the Claude Code auth/settings folder,
+  // while the rest of the home directory is discarded on each rebuild.
+  // This keeps you logged in without making the entire container state persistent.
+  // ${devcontainerId} ensures each project gets its own volume instead of sharing one.
   "mounts": [
     "source=claude-code-config-${devcontainerId},target=/root/.claude,type=volume"
   ],
@@ -20,41 +19,40 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        // Claude-Code-Extension – bringt eine eigene, eingebettete CLI-Kopie
-        // fürs Chat-Panel mit, kein separates CLI-Feature nötig (siehe oben).
+        // Claude Code extension – provides its own embedded CLI copy
+        // for the chat panel, no separate CLI feature is needed (see above).
         "anthropic.claude-code",
 
-        // PHP-Sprachserver: Autovervollständigung, Diagnostik, Go-to-Definition –
-        // Grundvoraussetzung, um überhaupt sinnvoll PHP zu schreiben.
+        // PHP language server: autocompletion, diagnostics, go-to-definition –
+        // a basic requirement for writing PHP meaningfully.
         "bmewburn.vscode-intelephense-client",
 
-        // Coding-Standards-Check (auf WordPress Coding Standards konfigurierbar) –
-        // von Anfang an relevant, weil ihr sicherheitskritischen Formular-Code
-        // selbst schreibt und Konsistenz von Tag 1 an will.
+        // Coding standards check (configurable for WordPress coding standards) –
+        // relevant from the start because you will write security-critical form code
+        // yourself and want consistency from day one.
         "wongjn.php-sniffer",
 
-        // Autovervollständigung für add_action/add_filter, inkl. Core-Hooks –
-        // sofort nötig, sobald ihr in functions.php/inc/*.php Hooks registriert.
+        // Autocompletion for add_action/add_filter, including core hooks –
+        // immediately useful once you register hooks in functions.php/inc/*.php.
         "johnbillion.vscode-wordpress-hooks",
 
-        // Einheitliche Formatierungsregeln über alle Dateitypen hinweg (Indentation,
-        // Zeilenenden) – kostet nichts, verhindert von Anfang an Diff-Rauschen,
-        // besonders relevant, falls das Theme später als Basis für weitere
-        // Kundenprojekte geforkt wird.
+        // Consistent formatting rules across all file types (indentation,
+        // line endings) – costs nothing and prevents diff noise from the start,
+        // especially relevant if the theme is later forked as the basis for more
+        // client projects.
         "editorconfig.editorconfig",
 
-        // Git-Historie/Blame direkt im Editor – nützlich, sobald der erste
-        // sicherheitsrelevante Code (Formular-Handler) entsteht und Änderungen
-        // nachvollziehbar bleiben sollen.
+        // Git history/blame directly in the editor – useful once the first
+        // security-relevant code (form handlers) exists and changes need to remain traceable.
         "eamodio.gitlens"
 
-        // Bewusst noch NICHT enthalten, wird später ergänzt, sobald relevant:
-        // - cweijan.vscode-mysql-client2   (sobald die Formular-DB-Tabelle existiert)
-        // - deque-systems.vscode-axe-linter (sobald an den Patterns/HTML gearbeitet wird)
-        // - ms-azuretools.vscode-docker     (sobald Nextcloud-Portal ansteht)
-        // - esbenp.vscode-prettier          (sobald eigenes JS für Formular-Validierung entsteht)
-        // - mikestead.dotenv                (sobald Secrets über .env verwaltet werden)
-        // - humao.rest-client               (sobald der Formular-Endpunkt testbar ist)
+        // Intentionally not included yet; this can be added later when relevant:
+        // - cweijan.vscode-mysql-client2   (once the form DB table exists)
+        // - deque-systems.vscode-axe-linter (once patterns/HTML are being worked on)
+        // - ms-azuretools.vscode-docker     (once a Nextcloud portal is in scope)
+        // - esbenp.vscode-prettier          (once custom JS for form validation exists)
+        // - mikestead.dotenv                (once secrets are managed via .env)
+        // - humao.rest-client               (once the form endpoint is testable)
       ],
 
       "settings": {

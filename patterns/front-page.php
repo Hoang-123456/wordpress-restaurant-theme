@@ -4,13 +4,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Title:      Startseite (komplett)
+ * Title:      Complete homepage
  * Slug:       restaurant/front-page
  * Categories: restaurant
  * Block Types: core/post-content
  *
- * Fügt alle Sektionen in der richtigen Reihenfolge ein:
- * Hero → Menü → Über uns → Kontakt & Anfahrt.
+ * Inserts all sections in the correct order:
+ * Hero → Menu → About us → Contact & directions.
  */
 ?>
 
