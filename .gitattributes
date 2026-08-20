@@ -1,3 +1,5 @@
+* text=auto eol=lf
+
 # Dev-only files excluded from `git archive` (used by bin/build-zip.sh
 # to build the production ZIP). Runtime theme files must stay out of this list.
 

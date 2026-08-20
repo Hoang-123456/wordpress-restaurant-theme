@@ -1,6 +1,6 @@
 {
   "name": "Restaurant WordPress Theme",
-  "image": "php:8.2-cli",
+  "image": "php:8.5-cli",
   "runArgs": ["--name", "restaurant-wordpress-theme"],
 
   
