@@ -3,8 +3,15 @@
   "image": "php:8.5-cli",
   "runArgs": ["--name", "restaurant-wordpress-theme"],
 
-  
   "features": {
+    // NEW: Creates the non-root user "vscode" with sudo rights
+    // and sets up zsh with Oh My Zsh as the default shell.
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "vscode",
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": true
+    },
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
 
@@ -12,8 +19,9 @@
   // while the rest of the home directory is discarded on each rebuild.
   // This keeps you logged in without making the entire container state persistent.
   // ${devcontainerId} ensures each project gets its own volume instead of sharing one.
+  // CHANGED: Target is now in the home of "vscode" instead of /root.
   "mounts": [
-    "source=claude-code-config-${devcontainerId},target=/root/.claude,type=volume"
+    "source=claude-code-config-${devcontainerId},target=/home/vscode/.claude,type=volume"
   ],
 
   "customizations": {
@@ -65,5 +73,9 @@
   // Optional: lokaler PHP-Dev-Server, falls ihr direkt im Container testen wollt.
   "forwardPorts": [8080],
 
-  "remoteUser": "root"
+  // NEW: The volume is owned by root when created, so hand it over to "vscode".
+  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/.claude",
+
+  // CHANGED: Non-root user instead of root.
+  "remoteUser": "vscode"
 }
